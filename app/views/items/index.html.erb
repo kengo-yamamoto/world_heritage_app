@@ -6,13 +6,16 @@
                 <%= f.label :item_name_cont, "世界遺産名を含む" %>
                 <%= f.search_field :item_name_cont, placeholder: "検索ワード" %>
             </div>
+            
             <div class="actions"><%= f.submit "検索" %></div>
             <% end %>
             <% @items.each do |item|%>
-                <%= item.genre %><br />
-                <%= item.country %><br />
+                <%= item.genre.genre_name %><br /> 
+                <%= attachment_image_tag(item, :item_image, :fill, 300, 300, format: "jpg") %>
+                <%= item.country.country_name %><br />
                 <%= item.item_name %><br />
                 <%= link_to '詳しくはこちらへ', item_path(item.id) %>
             <% end %>
     </div>
+    <%= paginate @items, class: "paginate" %>
 </div>

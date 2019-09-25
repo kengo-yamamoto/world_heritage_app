@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
     def index
         @search = Item.ransack(params[:q])
         @q = @search.result
-        @items = Item.all
+        @items = Item.all.page(params[:page])
     end
     def show
         @item = Item.find(params[:id])

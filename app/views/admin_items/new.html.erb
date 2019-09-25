@@ -1,0 +1,36 @@
+<%= form_with @item url: admin_items_path do |item| %>
+<%= attachment_image_tag @item, :item_image, format: "jpeg", fallback: "no_image.jpeg", :fill "100, 300" %>
+<%= item.attachment_field :item_image %>
+<div class="form-group">
+<%= item.label :item_name %>
+<%= item.text_field :item_name, class: "form-control" %>
+</div>
+
+    <div class="form-group">
+    <%= item.fields_for @genre do |genre| %>
+        <%= genre.label :genre_name %>
+        <%= genre.text_field :genre_name, class: "form-control" %>
+    <% end %>
+    </div>
+
+    <div class="form-group">
+    <%= item.fields_for @aria do |aria| %>
+        <%= aria.label :aria_name %>
+        <%= aria.text_field :aria_name, class: "form-control" %>
+    <% end %>
+    </div>
+
+    <div class="form-group">
+    <%= item.fields_for @country do |country| %>
+        <%= country.label :country_name %>
+        <%= country.text_field :country_name, class: "form-control" %>
+    <% end %>
+    </div>
+
+<h3>世界遺産紹介</h3>
+<div class="form-group">
+<%= item.text_field :body, class: "form-control", id: "body-text" %>
+<%= item.submit "世界遺産登録" %>
+</div>
+
+<% end %>

@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reviews, dependent: :destroy
   attachment :profile_image
-  validates :nick_name, presence: true
+  validates :email, presence: true
   validates :password, confirmation: true
 end
