@@ -1,0 +1,9 @@
+<%
+=begin%>
+ <%= attachment_image_tag @item, :item_image, :fill, 100, 100, fallback: "no_image.jpg" %> 
+<%
+=end%>
+<%= @item.item_name %>
+<%= @item.genre %>
+<%= @item.aria %>/<%= @item.country %>
+<%= link_to "レビュー　採点をする", new_review_path  %>

@@ -1,0 +1,16 @@
+// Place all the styles related to the Reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-group {
+    display: -webkit-flex;
+    display: flex;
+}
+.review-box {
+    border: solid 1px;
+    height: 100vh;
+}
+.review-item {
+    margin: 0 auto;
+    height: 50vh;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WorldHeritageApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% self_css_path = "/assets/"+controller.controller_name  %>
+    <%= stylesheet_link_tag self_css_path, :media => "all" %>
+  </head>
+
+  <body>
+  
+          <nav class="nav flex-column">
+              <% if user_signed_in? %>
+                <li clss="nav-item"><%=link_to 'トップページ', items_path %></li>
+                <li clss="nav-item"><%=link_to 'アバウト', root_path %></li>
+                <li clss="nav-item"><%=link_to 'ランキング', ranks_path %></li>
+                <li clss="nav-item"><%=link_to '文化遺産', caltuals_path %></li>
+                <li clss="nav-item"><%=link_to '自然遺産', naturals_path %></li>
+                <li clss="nav-item"><%=link_to '複合遺産', complexes_path %></li>
+                <li clss="nav-item"><%=link_to 'マイページ', users_acount_path %></li>
+                <li clss="nav-item"><%=link_to 'ログアウト', destroy_user_session_path, :method => :delete  %></li>
+              <% elsif admin_signed_in? %>
+                <li clss="nav-item"><%=link_to 'トップページ', items_path %></li>
+                <li clss="nav-item"><%=link_to 'アイテム追加', new_item_path %></li>
+                <li clss="nav-item"><%=link_to 'ユーザー一覧', admin_users_path %></li>
+                <li clss="nav-item"><%=link_to 'ログアウト', destroy_admin_session_path, :method => :delete  %></li>
+              <% else %>
+                <li clss="nav-item"><%=link_to 'トップページ', items_path %></li>
+                <li clss="nav-item"><%=link_to 'アバウト', root_path %></li>
+                <li clss="nav-item"><%=link_to 'ランキング', ranks_path %></li>
+                <li clss="nav-item"><%=link_to '文化遺産', caltuals_path %></li>
+                <li clss="nav-item"><%=link_to '自然遺産', naturals_path %></li>
+                <li clss="nav-item"><%=link_to '複合遺産', complexes_path %></li>
+                <li clss="nav-item"><%=link_to '新規登録', new_user_registration_path %></li>
+                <li clss="nav-item"><%=link_to 'ログイン', new_user_session_path %></li>
+              <% end %>
+          </nav>
+          <div class="contents">
+          <%= yield %>
+          </div>
+
+
+  </body>
+</html>

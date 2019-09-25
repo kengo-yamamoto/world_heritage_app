@@ -1,0 +1,28 @@
+<%= form_widh model: @user, url: users_acount_path, method: patch do |f| %>
+    <%= f.attachment_image_tag :profile_image %>
+    <%= f.attachment_field :profile_image %>
+    <%= f.text_field :nick_name, autofocus: true, class: "form-control" %>
+    <%= f.text_field :age, autofocus: true, class: "form-control" %>
+    <%= f.text_field :blood_type, autofocus: true, class: "form-control" %>
+    <%= f.text_field :job, autofocus: true, class: "form-control" %>
+<% end %>
+<%= link_to "退会", root_path %>
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>本当に退会してもよろしいですか？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
