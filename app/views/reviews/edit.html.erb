@@ -1,1 +1,9 @@
-<%= form_with @review, url: review_path do |f|%>
+<%= form_with model: @review, url: item_review_path do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :rate %>
+<%= f.text_field :rate %>
+<%= f.label :body %>
+<%= f.text_field :body %>
+<%= f.submit "確定" %>
+<% end %>

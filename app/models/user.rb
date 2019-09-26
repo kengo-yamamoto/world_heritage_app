@@ -7,4 +7,12 @@ class User < ApplicationRecord
   attachment :profile_image
   validates :email, presence: true
   validates :password, confirmation: true
+  # deviseでemailを不必要にする]
+def email_required?
+  false
+end
+def email_changed?
+  false
+end
+
 end

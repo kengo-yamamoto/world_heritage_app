@@ -1,4 +1,4 @@
-<%= form_with model: @review, url: reviews_path do |f| %>
+<%= form_with model: @review, url: item_reviews_path do |f| %>
 <div class="review-box">
   <div class="review-item">
   <!-- タイトル -->
@@ -37,8 +37,8 @@
 <script>
 $('#star').raty({
   size     : 36,
-  starOff:  '<%= asset_path('star-off.png') %>',
-  starOn : '<%= asset_path('star-on.png') %>',
+  starOff:  '/assets/star-off.png',
+  starOn : '/assets/star-on.png',
   scoreName: 'review[rate]' 
 });
 </script>

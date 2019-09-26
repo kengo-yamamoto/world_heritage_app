@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <%= search_form_for @search do |f| %>
+            <%= search_form_for @q, url: items_path do |f| %>
             <div class="form-group">
                 <%= f.label :item_name_cont, "世界遺産名を含む" %>
-                <%= f.search_field :item_name_cont, placeholder: "検索ワード" %>
+                <%= f.search_field :item_name_or_genre_genre_name_or_area_area_name_or_country_country_name_cont, placeholder: "検索ワード" %>
             </div>
             
             <div class="actions"><%= f.submit "検索" %></div>
