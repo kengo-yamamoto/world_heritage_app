@@ -1,5 +1,12 @@
 <h1>Ranks#index</h1>
 <p>Find me in app/views/ranks/index.html.erb</p>
 
-if 
-<%= link_to "週間", url: %>
+
+<%= link_to "週間", ranks_path(query: "week") %>
+<%= link_to "月間", ranks_path(query: "month") %>
+<%= link_to "年間", ranks_path(query: "year") %>
+
+<% @items.each do |item| %>
+    <%= attachment_image_tag(item, :item_image, :fill, 300, 300, format: "jpg") %>
+    <%= item.item_name %>
+<% end %>

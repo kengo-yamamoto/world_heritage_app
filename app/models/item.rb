@@ -20,9 +20,9 @@ class Item < ApplicationRecord
     def self.ranking_by_duration_year
         all.sort_by{|i| i.reviews.where(created_at: 1.year.ago.end_of_day..Time.zone.now.end_of_day).average(:rate).to_f}
     end
-    # def ranking_by_user_attribute(attribute)
-    #     querys = User.all.pluck(attribute).uniq
-    #     ranks = querys.map
-    #     {|query| Item.all.sort_by{|i| i.reviews.join(:user).where(:job => query).average(:rate).to_f}}
-    # end
+    #  def ranking_by_user_attribute(attribute)
+    #      querys = User.all.pluck(attribute).uniq
+    #      ranks = querys.map
+    #      {|query| Item.all.sort_by{|i| i.reviews.join(:user).where(:job => query).average(:rate).to_f}}
+    #  end
 end
