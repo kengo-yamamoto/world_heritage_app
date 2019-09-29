@@ -4,6 +4,6 @@
 <%
 =end%>
 <%= @item.item_name %>
-<%= @item.genre %>
-<%= @item.aria %>/<%= @item.country %>
-<%= link_to "レビュー　採点をする", new_review_path  %>
+<%= @item.genre.genre_name %>
+<%= @item.area.area_name %>/<%= @item.country.country_name %>
+<%= link_to "レビュー　採点をする", new_item_review_path(@item.id)  %>

@@ -1,1 +1,22 @@
-<%= form_with @review, url: review_path do |f|%>
+<%= form_with model: @review, url: item_review_path do |f| %>
+<%= f.label :title "タイトル"%>
+<%= f.text_field :title %>
+
+<div id="star">
+<%= f.label :rate "評価"%>
+<%= f.hidden_field :rate, id: "review_star" %>
+</div>
+
+<%= f.label :body "本文"%>
+<%= f.text_field :body %>
+<%= f.submit "確定" %>
+<% end %>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '/images/star-off.png',
+  starOn : '/images/star-on.png',
+  scoreName: 'review[rate]' 
+});
+</script>
