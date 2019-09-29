@@ -67,6 +67,4 @@ gem 'refile-mini_magick'
 gem 'bootstrap', '~> 4.3.1'
 gem 'kaminari'
 gem 'jquery-rails'
-gem 'json'
-gem 'mysql2'
-gem 'listen', '>= 3.0.5', '< 3.2'
+
