@@ -30,6 +30,10 @@ Rails.application.configure do
   config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+  config.assets.precompile += %w[.js .css]
+  config.assets.precompile << lambda { |path, fn|
+    fn =~ %r{app/assets} and [".js", ".css"].include?(File.extname(path))
+  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
