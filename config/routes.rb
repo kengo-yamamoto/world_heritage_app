@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'users/edit'
   root 'abouts#index'
   devise_for :user
   devise_for :admins

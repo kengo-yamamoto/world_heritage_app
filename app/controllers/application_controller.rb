@@ -12,18 +12,16 @@ class ApplicationController < ActionController::Base
             admin_users_path
         end
     end
-    def after_sign_out_path_for(resource)
-        case resource
-        when User
-            new_user_session_path
-        when Admin
-            new_admin_session_path
+    def after_sign_out_path_for(resource_or_scope)
+        if resource_or_scope == :user
+          root_path
+        elsif resource_or_scope == :admin
+          new_admin_session_path
+        else
+          root_path
         end
     end
-    def account_path
-        @user = current_user
-    end
-
+    
     protected
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:nick_name, :profile_image, :age, :job, :blood_type, :sex, :email, :password])

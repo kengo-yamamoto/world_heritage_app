@@ -1,5 +1,14 @@
 <h1>レビュー詳細</h1>
-<%= @review.rate %>
+<%= @review.rate, id: "star" %>
 <%= @review.title %>
 <%= @review.body %>
-<%= link_to "編集", edit_item_review_path %>
+<%= link_to "編集", edit_item_review_path(@review.id) %>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '/images/star-off.png',
+  starOn : '/images/star-on.png',
+  scoreName: 'review[rate]' 
+});
+</script>

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     def index
-        @all_ranks = Item.create_all_ranks
+        
     end
     def new
         @review = Review.new
