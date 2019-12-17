@@ -1,15 +1,37 @@
 <%= form_with model: @review, url: item_review_path do |f| %>
-<%= f.label :title "タイトル"%>
-<%= f.text_field :title %>
+<div class="review-box">
+  <div class="review-item">
+  <!-- タイトル -->
+  <div class="form-group">
+    <%= f.label :title, 'タイトル ' %>
+    <div class="col-md-9">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
 
-<div id="star">
-<%= f.label :rate "評価"%>
-<%= f.hidden_field :rate, id: "review_star" %>
+  <!-- 評価 -->
+  <div class="form-group" id="star">
+    <%= f.label :rate,'評価'%>
+    <%= f.hidden_field :rate, id: "review_star"%>
+  </div>
+
+  <!-- 口コミ -->
+  <div class="form-group">
+    <%= f.label :body, '口コミ内容'%>
+    <div class="col-md-9">
+      <%= f.text_area :body, class: "form-control",rows: "8",placeholder:'口コミ内容がなくても、タイトルと評価のみで投稿できます。まずは投稿してみましょう！投稿してから編集もできますよ！' %>
+    </div>
+  </div>
+
+  <!-- 確認ボタン -->
+  <div class="form-group text-right">
+    <div class="col-md-9">
+      <%= f.submit 'レビューを投稿する', class:"btn btn-success" %>
+    </div>
+  </div>
+  </div>
 </div>
 
-<%= f.label :body "本文"%>
-<%= f.text_field :body %>
-<%= f.submit "確定" %>
 <% end %>
 
 <script>
